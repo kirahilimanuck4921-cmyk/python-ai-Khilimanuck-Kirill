@@ -1,0 +1,7 @@
+SELECT DISTINCT ?university ?universityLabel ?countryLabel ?cityLabel ?foundingYear WHERE {
+  ?university wdt:P31 wd:Q3918.
+  OPTIONAL { ?university wdt:P17 ?country. }
+  OPTIONAL { ?university wdt:P159 ?city. }
+  OPTIONAL { ?university wdt:P571 ?foundingYear. }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}

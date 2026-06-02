@@ -1,0 +1,8 @@
+SELECT DISTINCT ?university ?universityLabel ?totalStudents ?undergradStudents ?postgradStudents WHERE {
+  ?university wdt:P31 wd:Q3918.
+  OPTIONAL { ?university wdt:P2196 ?totalStudents. }
+  OPTIONAL { ?university wdt:P513 ?undergradStudents. }
+  OPTIONAL { ?university wdt:P514 ?postgradStudents. }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  FILTER(?totalStudents > 0 || ?undergradStudents > 0 || ?postgradStudents > 0)
+}
